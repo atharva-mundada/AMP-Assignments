@@ -1,4 +1,4 @@
-;jumping to the boot sector location
+;setting the location counter to the boot sector location
 org 0x7C00
 
 
@@ -24,7 +24,7 @@ mov dh, 0
 ;The sector number (i.e, 2) is stored in the cl register
 mov cl, 2
 
-;Reading from the hard-drive
+;Reading from the disk
 mov ah, 2
 int 0x13
 
@@ -35,5 +35,7 @@ times 510-($-$$) db 0
 
 
 ;Master Boot Record Signature
-db 0x55 ;byte 511 = 0x55
-db 0xAA ;byte 512 = 0xAA
+;byte 511 = 0x55
+db 0x55
+;byte 512 = 0xAA
+db 0xAA

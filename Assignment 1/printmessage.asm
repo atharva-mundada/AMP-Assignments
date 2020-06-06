@@ -1,4 +1,4 @@
-;jumping to the kernel code position
+;setting the location counter to the kernel code position
 org 0x8500
 
 ;real mode
@@ -22,7 +22,7 @@ bits 16
 	;making the real system halt
 	hlt
 
-	;making qemu halt to ensure that everything stops
+	;making qemu halt
 	ret
 
 
@@ -45,8 +45,7 @@ print:
 	add di, 800
 
 
-.loop:
-	;interrupt for reading the key from keyboard into al
+.loop:	;interrupt for reading the key from keyboard into al
 	mov ah, 10H
 	int 16H
 
@@ -58,9 +57,7 @@ print:
 	;printing next character
 	jmp .loop
 
-;The data and information of the gdt table
-.end:
-	ret
+.end:	ret
 
 
 ;Making it a disk sector with scaling
