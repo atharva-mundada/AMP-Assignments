@@ -1,5 +1,5 @@
 ;setting the location counter to the boot loader location
-org 0x7C00
+org 0x7c00
 
 ;real mode
 bits 16
@@ -47,7 +47,7 @@ print:
 
 
 .loop:	;interrupt for reading the key from keyboard into al
-	mov ah, 10H
+	mov ah, 0x00
 	int 16H
 
 	mov ah, 0x2f
@@ -68,7 +68,3 @@ times 512-($-$$) db 0
 ;MBR Signature
 db 0x55 ;byte 511 = 0x55
 db 0xAA ;byte 512 = 0xAA
-db 0x55
-;byte 512 = 0xAA
-db 0xAA
-

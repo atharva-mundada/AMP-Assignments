@@ -5,7 +5,7 @@ GLOBAL _start
 _start:
 
 ;setting the location counter to the boot loader position
-org 0x7C00
+org 0x7c00
 
 ;real mode
 bits 16
