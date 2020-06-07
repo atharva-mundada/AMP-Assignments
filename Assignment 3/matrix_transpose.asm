@@ -86,10 +86,10 @@ print:
 		punpckhbw mm1, mm2
 		punpckhbw mm3, mm4
 		movq mm0, mm1
-		punpckhwd mm1, mm3
-		punpcklwd mm0, mm3
-		movq [si + 24], mm1
-		movq [si + 16], mm0
+		punpcklwd mm1, mm3
+		punpckhwd mm0, mm3
+		movq [si + 24], mm0
+		movq [si + 16], mm1
 		
 		;printing the transpose matrix
 		mov di, ax
