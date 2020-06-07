@@ -157,7 +157,7 @@ halt:  	;returning back to the real mode
 
 
 ;Displaying the message	
-display:
+storemessage:
 	;clearing the DI register
 	xor   di, di
 
@@ -182,6 +182,10 @@ msg_r db "In Real Mode", 0
 
 ;Making it a disk sector with scaling
 times 510-($-$$) db 0
+
+;MBR Signature
+db 0x55 ;byte 511 = 0x55
+db 0xAA ;byte 512 = 0xAA
 
 
 ;MBR Signature

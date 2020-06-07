@@ -1,5 +1,5 @@
-;setting the location counter to the kernel code position
-org 0x8500
+;setting the location counter to the boot loader location
+org 0x7C00
 
 ;real mode
 bits 16
@@ -30,8 +30,8 @@ cls:
 	;setting the DI register to 0
 	xor di,di
 
-	;Default console size (80 rows and 20 columns)
-	mov cx, 80*24
+	;Default console size (80 rows and 25 columns)
+	mov cx, 80*25
 
 	repnz stosw
 	ret
@@ -62,3 +62,12 @@ print:
 
 ;Making it a disk sector with scaling
 times 512-($-$$) db 0
+
+
+;MBR Signature
+db 0x55 ;byte 511 = 0x55
+db 0xAA ;byte 512 = 0xAA
+db 0x55
+;byte 512 = 0xAA
+db 0xAA
+

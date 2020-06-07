@@ -5,7 +5,7 @@ GLOBAL _start
 _start:
 
 ;setting the location counter to the kernel code position
-org 0x8000
+org 0x7C00
 
 ;real mode
 bits 16
@@ -109,10 +109,17 @@ print:
 		.nxt1:	jmp .loop2
 
 	.ext1:	ret
+
+;Making it a disk sector with scaling
+times 510-($-$$) db 0
+
 		
+;MBR Signature
+db 0x55 ;byte 511 = 0x55
+db 0xAA ;byte 512 = 0xAA
 
 ;Data section of the code
-SECTION .DATA	
+SECTION .DATA
 	
 ;the given and the transpose matrix
 mgiven: db "18734582749174829374829472587823", 0
