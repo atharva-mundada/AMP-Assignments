@@ -177,8 +177,8 @@ display:
 
 
 ;the two messages for the real and the protected mode
-msg_p db "Protected Mode", 0
-msg_r db "Real Mode", 0
+msg_p db "In Protected Mode", 0
+msg_r db "In Real Mode", 0
 
 ;Making it a disk sector with scaling
 times 510-($-$$) db 0

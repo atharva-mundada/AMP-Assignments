@@ -1,2 +1,2 @@
-nasm -fbin kernel.asm -o kernel.bin
-qemu-system-i386 kernel.bin
+nasm -fbin protectedmessage.asm -o protectedmessage.bin
+qemu-system-i386 protectedmessage.bin
