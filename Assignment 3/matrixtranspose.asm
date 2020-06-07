@@ -36,8 +36,8 @@ cls:
         ;setting the DI register to 0
         xor di,di
 
-        ;Default console size (80 rows and 20 columns)
-        mov cx, 80*24
+        ;Default console size (80 rows and 25 columns)
+        mov cx, 80*25
 
         repnz stosw
         ret
@@ -103,7 +103,7 @@ print:
 			jz .ext1
 			stosw
 			dec cl
-			jnz .nx	t1
+			jnz .nxt1
 			mov cl, 4
 			add di,	 152
 		.nxt1:	jmp .loop2

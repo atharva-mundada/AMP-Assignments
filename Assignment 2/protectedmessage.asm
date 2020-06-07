@@ -21,7 +21,7 @@ boot:
 	xor di,di
 
 	;the default console size
-	mov cx, 80*24
+	mov cx, 80*25
 
 	repnz stosw
 
@@ -60,7 +60,7 @@ boot:
 	xor di,di
 
 	;the default size of the console
-	mov cx, 80*24
+	mov cx, 80*25
 
         repnz stosw
 	
@@ -182,11 +182,6 @@ msg_r db "In Real Mode", 0
 
 ;Making it a disk sector with scaling
 times 510-($-$$) db 0
-
-;MBR Signature
-db 0x55 ;byte 511 = 0x55
-db 0xAA ;byte 512 = 0xAA
-
 
 ;MBR Signature
 db 0x55 ;byte 511 = 0x55
