@@ -43,8 +43,8 @@ cls:
         ret
 
 print:
-	xor   di, di
-	mov si,mgiven
+	xor di, di
+	mov si, mgiven
 	mov cl, 8
 	mov ah, 0x1e
 
@@ -63,7 +63,7 @@ print:
 
 	;creating the transpose matrix from the original matrix / given matrix	
 	.ext:
-		mov si,mtranspose
+		mov si, mtranspose
 		mov ax, di
 		mov di, mgiven
 		movq mm1, [di]
@@ -117,10 +117,3 @@ SECTION .DATA
 ;the given and the transpose matrix
 mgiven: db "18734582749174829374829472587823", 0
 mtranspose: times 32 db (0)
-
-;Making it a disk sector with scaling
-times 512-($-$$) db 0
-
-;MBR Signature
-db 0x55 ;byte 511 = 0x55
-db 0xAA ;byte 512 = 0xAA
