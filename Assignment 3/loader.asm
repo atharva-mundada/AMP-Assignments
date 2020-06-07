@@ -8,7 +8,7 @@ int 0x13
 
 ;Reading from the disk and writing to the RAM
 ;moving the address into bx register to write the kernel code to
-mov bx, 0x8500
+mov bx, 0x8000
 
 ;the amount of sectors to read is moved in the accumulator
 mov al, 1
@@ -29,7 +29,7 @@ int 0x13
 
 
 ;jumping to the kernel code and making it fit in a sector of 512 bytes
-jmp 0x8500
+jmp 0x8000
 times 510-($-$$) db 0
 
 

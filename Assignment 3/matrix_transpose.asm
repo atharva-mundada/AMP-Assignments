@@ -5,7 +5,7 @@ GLOBAL _start
 _start:
 
 ;setting the location counter to the kernel code position
-org 0x8500
+org 0x8000
 
 ;real mode
 bits 16

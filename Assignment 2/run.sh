@@ -1,2 +1,2 @@
-nasm -fbin protectedmode.asm -o protectedmode.bin
-qemu-system-i386 protected.bin
+nasm -fbin kernel.asm -o kernel.bin
+qemu-system-i386 kernel.bin
