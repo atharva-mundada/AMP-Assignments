@@ -3,7 +3,8 @@ org 0x7C00
 
 ;real mode
 bits 16
-	;position of the video memory in RAM
+	
+boot: 	;position of the video memory in RAM
 	push 0xb800
 
 	;Set ES to the Video Memory
